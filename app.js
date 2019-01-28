@@ -1,6 +1,7 @@
 import Express from 'express';
 import Logger from 'morgan';
 import Cors from 'cors';
+import Path from 'path';
 import ExpressValidator from 'express-validator';
 
 import PageNotFound from './core/pageNotFound';
@@ -26,7 +27,12 @@ app
   .use(ExpressValidator())
   .use(Logger('dev'))
   .use(Express.json())
-  .use(Output);
+  .use(Output)
+  .use(
+    Express.static(
+      Path.join(__dirname, Config.public_path)
+    )
+  );
 
 Routing(app, Routes);
 

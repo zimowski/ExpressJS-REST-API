@@ -9,5 +9,6 @@ export default {
     'username': 'root',
     'password': '',
     'table_prefix': ''
-  }
+  },
+  public_path: 'public'
 };
