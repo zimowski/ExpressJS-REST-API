@@ -3,19 +3,21 @@ import Config from '../app-config';
 
 const db = MySQL.createConnection(
   {
-    host: Config.mysql.hostname,
-    user: Config.mysql.username,
-    password: Config.mysql.password,
-    database : Config.mysql.database,
-    multipleStatements: true
+    host: Config.db.mysql.hostname,
+    user: Config.db.mysql.username,
+    password: Config.db.mysql.password,
+    database : Config.db.mysql.database,
+    multipleStatements: Config.db.mysql.multipleStatements
   }
 );
 
-db.connect((err) => {
-  if (err) {
-    console.log(`Couldn't connect to MySQL database`);
-    throw err;
-  }
-});
+if (Config.db.mysql.enabled) {
+  db.connect((err) => {
+    if (err) {
+      console.log(`Couldn't connect to MySQL database`);
+      throw err;
+    }
+  });
+}
 
 export default db;

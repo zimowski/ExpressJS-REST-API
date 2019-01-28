@@ -3,7 +3,6 @@ import Logger from 'morgan';
 import Cors from 'cors';
 import Path from 'path';
 import ExpressValidator from 'express-validator';
-
 import PageNotFound from './core/pageNotFound';
 import ErrorHandler from './core/errorHandler';
 import Output from './core/output';
@@ -13,31 +12,33 @@ import Routing from './core/routing';
 import Config from './app-config';
 import Routes from './app-routing';
 
-global.db = MySQL;
+if (Config.db.mysql.enabled) {
+  global.db = MySQL;
+}
 
 const app = Express();
 
-app
-  .options('*', Cors())
-  .use(Cors({
-    origin: Config.general.allow_domains,
-    preflightContinue: true
-  }))
-  .use(Express.urlencoded({ extended: false }))
-  .use(ExpressValidator())
-  .use(Logger('dev'))
-  .use(Express.json())
-  .use(Output)
-  .use(
-    Express.static(
-      Path.join(__dirname, Config.general.public_path)
-    )
-  );
+if (Config.general.cors.enabled) {
+  app.options('*', Cors());
+  app.use(Cors({
+    origin: Config.general.cors.domains,
+    preflightContinue: Config.general.cors.preflightContinue
+  }));
+}
+
+app.use(Express.urlencoded({ extended: false }));
+app.use(ExpressValidator());
+app.use(Logger('dev'));
+app.use(Express.json());
+app.use(Output);
+
+if (Config.general.public_path) {
+  app.use(Express.static(Config.general.public_path));
+}
 
 Routing(app, Routes);
 
-app
-  .use(PageNotFound)
-  .use(ErrorHandler);
+app.use(PageNotFound);
+app.use(ErrorHandler);
 
 module.exports = app;

@@ -5,23 +5,23 @@ export default {
   verify: (token) => {
     return JWT.verify(
       token,
-      Config.token.private_key,
+      Config.token.key,
       (error, decoded) => !error
     );
   },
   sign: (data) => {
     return JWT.sign(
       { data },
-      Config.token.private_key,
+      Config.token.key,
       {
-        expiresIn: Config.token.expires_in
+        expiresIn: Config.token.expiresIn
       }
     );
   },
   decode: (token) => {
     return JWT.verify(
       token,
-      Config.token.private_key,
+      Config.token.key,
       (err, payload) => {
         if (err) return false;
         return payload;
