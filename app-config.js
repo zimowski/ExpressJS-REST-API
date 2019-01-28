@@ -1,14 +1,20 @@
 export default {
-  'port': 3000,
-  'allow_domains': [
-    'http://localhost:4200'
-  ],
+  'general': {
+    'public_path': 'public',
+    'port': 3000,
+    'allow_domains': [
+      'http://localhost:4200'
+    ]
+  },
   'mysql' : {
     'hostname': 'localhost',
-    'database': 'test',
+    'database': 'rest_api',
     'username': 'root',
     'password': '',
-    'table_prefix': ''
+    'table_prefix': 'api_'
   },
-  public_path: 'public'
+  'token': {
+    'private_key': 'q>JN`-Yd3}RA?$:O.M6EaDZKi>P}QGo>Z^Kc46j%}fZd@Y~P>;A2XTAu{-xK6{E',
+    'expires_in': '24 hours'
+  }
 };

@@ -20,7 +20,7 @@ const app = Express();
 app
   .options('*', Cors())
   .use(Cors({
-    origin: Config.allow_domains,
+    origin: Config.general.allow_domains,
     preflightContinue: true
   }))
   .use(Express.urlencoded({ extended: false }))
@@ -30,7 +30,7 @@ app
   .use(Output)
   .use(
     Express.static(
-      Path.join(__dirname, Config.public_path)
+      Path.join(__dirname, Config.general.public_path)
     )
   );
 

@@ -1,9 +1,9 @@
 import Express from 'express';
 
-const router = Express.Router();
+const Router = Express.Router();
 
-router.get('/', (req, res, next) => {
+Router.get('/', (req, res, next) => {
   res.Output(200, 'API works!');
 });
 
-export default router;
+export default Router;
