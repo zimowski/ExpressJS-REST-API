@@ -7,6 +7,7 @@ export default {
     'hostname': 'localhost',
     'database': 'test',
     'username': 'root',
-    'password': ''
+    'password': '',
+    'table_prefix': ''
   }
 };

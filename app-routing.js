@@ -1,7 +1,7 @@
-import indexComponent from './components/index.component';
+import IndexComponent from './components/index.component';
 
 const routes = [
-  { route: '/', component: indexComponent, middlewares: [] }
+  { path: '/', component: IndexComponent, middlewares: [] }
 ];
 
 export default routes;
