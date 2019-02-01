@@ -6,4 +6,5 @@ export default (app, routes) => {
       throw `Component for route ${item.route} doesn't exist`;
     }
   });
+  return app;
 };
