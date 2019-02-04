@@ -11,7 +11,7 @@ require('babel-polyfill');
 var app = require('../app');
 var debug = require('debug')('v1:server');
 var http = require('http');
-var config = require('../app-config');
+var config = require('../app.config');
 
 /**
  * Get port from environment and store in Express.

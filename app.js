@@ -7,10 +7,10 @@ import PageNotFound from './core/pageNotFound';
 import ErrorHandler from './core/errorHandler';
 import Output from './core/output';
 import MySQL from './core/mysql';
+import Config from './app.config';
 import Routing from './core/routing';
 
-import Config from './app-config';
-import Routes from './app-routing';
+import Source from './src/app.js';
 
 if (Config.db.mysql.enabled) {
   global.db = MySQL;
@@ -35,6 +35,10 @@ app.use(Output);
 if (Config.general.public_path) {
   app.use(Express.static(Config.general.public_path));
 }
+
+const Routes = [
+  { path: '/', component: Source, middlewares: [] }
+]
 
 Routing(app, Routes);
 

@@ -1,7 +1,7 @@
 import Express from 'express';
-import ValidateRequestParametersMiddleware from '../core/validateRequestParameters';
+import ValidateRequestParametersMiddleware from '../../core/validateRequestParameters';
 import UserService from '../services/user.service';
-import Token from '../core/token';
+import Token from '../../core/token';
 import BCrypt from 'bcrypt-nodejs';
 import { body } from 'express-validator/check';
 

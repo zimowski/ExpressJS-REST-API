@@ -1,5 +1,5 @@
 import MySQL from 'mysql';
-import Config from '../app-config';
+import Config from '../app.config';
 
 const db = MySQL.createConnection(
   {

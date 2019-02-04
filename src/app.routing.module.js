@@ -1,11 +1,11 @@
 import IndexComponent from './components/index.component';
 import AuthenticationComponent from './components/authentication.component.js';
-import RestrictedArea from './core/restrictedArea';
+import RestrictedArea from '../core/restrictedArea';
 import UserMiddleware from './middlewares/user.middleware';
 
 // Example
 import SecretComponent from './components/secret.component';
-import ExampleModule from './example-module/example.module';
+import ExampleModule from './example/example.module';
 
 const routes = [
   { path: '/', component: IndexComponent, middlewares: [] },

@@ -1,9 +1,7 @@
 import Express from 'express';
 import Routing from '../core/routing';
-import Routes from './example-routing.module.js';
+import Routes from './app.routing.module';
 
 const Router = Express.Router();
-
-
 
 export default Routing(Router, Routes);

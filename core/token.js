@@ -1,5 +1,5 @@
 import JWT from 'jsonwebtoken';
-import Config from '../app-config';
+import Config from '../app.config';
 
 export default {
   verify: (token) => {
