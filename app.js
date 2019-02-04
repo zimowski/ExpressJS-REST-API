@@ -9,7 +9,6 @@ import Output from './core/output';
 import MySQL from './core/mysql';
 import Config from './app.config';
 import Routing from './core/routing';
-
 import Source from './src/app.js';
 
 if (Config.db.mysql.enabled) {
